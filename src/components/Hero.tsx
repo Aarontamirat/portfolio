@@ -11,27 +11,26 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
 
-  const { scrollXProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "start end"],
-  });
-
   // Parallax layers (different speeds)
   const nameY = useTransform(scrollYProgress, [0, 1], [0, 320]);
   const nameX = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const nameScale = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
+  const nameScale = useTransform(scrollYProgress, [0, 1], [1, 0.02]);
+  const nameDelay = useTransform(scrollYProgress, [0, 1], [0, 0.2]);
 
-  const subtitleY = useTransform(scrollYProgress, [0, 1], [0, 370]);
+  const subtitleY = useTransform(scrollYProgress, [0, 1], [0, 310]);
   const subtitleX = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const subtitleScale = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
+  const subtitleScale = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
+  const subtitleDelay = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
-  const bodyY = useTransform(scrollYProgress, [0, 1], [0, 420]);
+  const bodyY = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const bodyX = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const bodyScale = useTransform(scrollYProgress, [0, 1], [1, 0.6]);
+  const bodyScale = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
+  const bodyDelay = useTransform(scrollYProgress, [0, 1], [0, 2]);
 
-  const ctaY = useTransform(scrollYProgress, [0, 1], [0, 470]);
+  const ctaY = useTransform(scrollYProgress, [0, 1], [0, 290]);
   const ctaX = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const ctaScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const ctaScale = useTransform(scrollYProgress, [0, 1], [1, 0.4]);
+  const ctaDelay = useTransform(scrollYProgress, [0, 1], [0, 3]);
 
   return (
     <section

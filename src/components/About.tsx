@@ -41,8 +41,8 @@ export default function About() {
           },
           scrollTrigger: {
             trigger: el,
-            start: "top 40%",
-            end: "bottom -40%",
+            start: "top 20%",
+            end: "bottom -20%",
             scrub: true,
           },
         }

@@ -9,25 +9,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "HRMS Platform",
+    title: "ITSM Platform",
     description:
-      "Full-featured Human Resource Management System with payroll, attendance, and performance modules.",
-    tech: ["Next.js", "Prisma", "MySQL"],
-    image: "/projects/voting.jpg",
+      "Full-featured IT Service Management System with ticketing, project management, and performance modules.",
+    tech: ["PHP", "MySQL", "jQuery", "Tailwind CSS"],
+    image: "/projects/itsm.jpg",
   },
   {
     title: "Shareholder Voting System",
     description:
       "Weighted voting system with real-time vote aggregation and reporting.",
-    tech: ["PHP", "MySQL", "jQuery"],
-    image: "/projects/",
+    tech: ["Next.js", "Prisma", "MySQL", "Tailwind CSS"],
+    image: "/projects/voting.png",
   },
   {
-    title: "Dress Rental Platform",
+    title: "Claim Notifications Platform",
     description:
-      "Secure e-commerce platform with rental lifecycle and payment integration.",
+      "Web application for submitting and managing insurance claims. Includes features such as claim status tracking, payment processing, and automated notifications.",
     tech: ["PHP", "MVC", "PayPal"],
-    image: "/projects/rental.png",
+    image: "/projects/claim.png",
   },
 ];
 
@@ -96,32 +96,46 @@ export default function Projects() {
 
     /* ---------------- HOVER FOCUS MODE ---------------- */
 
+    let activeCard: HTMLDivElement | null = null;
+
     cards.forEach((card) => {
       card.addEventListener("mouseenter", () => {
-        gsap.to(card, {
-          scale: 1.06,
-          boxShadow: "0 30px 80px rgba(31, 208, 224,0.35)",
-          duration: 0.3,
-          ease: "power3.out",
-        });
+        if (activeCard === card) return;
+        activeCard = card;
 
-        cards
-          .filter((c) => c !== card)
-          .forEach((other) =>
-            gsap.to(other, {
-              scale: 0.96,
-              opacity: 0.5,
-              duration: 0.3,
-            })
-          );
+        gsap.killTweensOf(cards);
+
+        cards.forEach((c) => {
+          if (c === card) {
+            gsap.to(c, {
+              scale: 1.06,
+              opacity: 1,
+              boxShadow: "0 30px 80px rgba(31,208,224,0.35)",
+              duration: 0.35,
+              ease: "power3.out",
+            });
+          } else {
+            gsap.to(c, {
+              scale: 0.95,
+              opacity: 0.45,
+              boxShadow: "0 0 0 rgba(0,0,0,0)",
+              duration: 0.35,
+              ease: "power3.out",
+            });
+          }
+        });
       });
 
       card.addEventListener("mouseleave", () => {
+        activeCard = null;
+
+        gsap.killTweensOf(cards);
+
         gsap.to(cards, {
           scale: 1,
           opacity: 1,
           boxShadow: "0 0 0 rgba(0,0,0,0)",
-          duration: 0.4,
+          duration: 0.45,
           ease: "power3.out",
         });
       });
