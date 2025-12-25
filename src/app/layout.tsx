@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${mono.variable} relative`}>
       <body>
-        {/* <BootOverlay /> */}
+        <BootOverlay />
         <Navbar />
         {/* <FallingStar /> */}
         <MouseSnake />
