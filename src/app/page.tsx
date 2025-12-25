@@ -3,6 +3,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import CVAccess from "@/components/CVAccess";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <Skills />
       <Projects />
       <Contact />
+      <CVAccess />
     </main>
   );
 }

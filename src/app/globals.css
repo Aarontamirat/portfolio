@@ -223,6 +223,9 @@ body {
   .buttonFlicker:hover {
     animation: button-flicker 1.4s;
   }
+  .cv-download {
+    animation: button-flicker 4s infinite;
+  }
 }
 
 /* Ultra-wide spacing */
