@@ -115,13 +115,13 @@ export default function CVAccess() {
   return (
     <section id="cv" className="flex min-h-[70vh] items-center justify-center">
       <div className="w-full max-w-xl px-4 text-center">
-        <h2 className="font-display text-xl tracking-widest text-cyan-400">
+        <h2 className="font-display text-xl md:text-2xl tracking-widest text-cyan-400">
           CV ACCESS
         </h2>
 
         {!unlocked && (
           <>
-            <p className="mt-4 text-xs text-gray-400">
+            <p className="mt-4 text-xs md:text-lg text-gray-400">
               Stabilize the signal to unlock download
             </p>
 
@@ -135,7 +135,7 @@ export default function CVAccess() {
               {/* Signal */}
               <div
                 ref={signalRef}
-                className="absolute left-1/2 top-1/2 h-3 w-6 -translate-y-1/2 -translate-x-1/2 rounded bg-cyan-400 shadow-[0_0_12px_#0ff]"
+                className="absolute left-1/2 top-1/2 h-5 w-6 -translate-y-1/2 -translate-x-1/2 rounded bg-cyan-400 shadow-[0_0_12px_#0ff]"
               />
             </div>
 
