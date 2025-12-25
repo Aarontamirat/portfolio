@@ -50,7 +50,7 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="
             font-display
-            text-5xl
+            text-4xl
             tracking-widest
             text-cyan-400
             md:text-7xl

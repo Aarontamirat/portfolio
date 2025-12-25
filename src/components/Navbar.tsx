@@ -17,13 +17,13 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-display text-base tracking-widest text-cyan-400 logoFlicker"
+          className="font-display text-base md:text-lg tracking-widest text-cyan-400 logoFlicker"
         >
           &gt; AARON
         </Link>
 
         {/* Links */}
-        <ul className="flex gap-6 text-sm font-mono text-gray-300">
+        <ul className="flex gap-6 md:gap-10 tracking-wider text-sm md:text-lg font-mono text-gray-300">
           {navItems.map((item) => (
             <li key={item.href}>
               <Link

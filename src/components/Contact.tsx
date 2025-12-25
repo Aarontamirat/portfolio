@@ -104,6 +104,19 @@ export default function Contact() {
     setStatus("sending");
 
     const form = e.currentTarget;
+
+    // check if phone is valid
+    if (form.phone.value && !/^\d{10}$/.test(form.phone.value)) {
+      setStatus("idle");
+      return alert("Invalid phone number");
+    }
+
+    // check if email is valid
+    if (form.email.value && !/^\S+@\S+\.\S+$/.test(form.email.value)) {
+      setStatus("idle");
+      return alert("Invalid email");
+    }
+
     const data = Object.fromEntries(new FormData(form));
 
     await fetch("/api/contact", {
@@ -121,11 +134,12 @@ export default function Contact() {
 
     const lines = [
       "> ENCRYPTING PAYLOAD...",
-      "> HANDSHAKE CONFIRMED",
-      "> TRANSMITTING DATA STREAM",
-      "> PACKETS ACCEPTED",
-      "> CHANNEL LOCKED",
-      "> SIGNAL SUCCESSFUL ✓",
+      "> CONFIRMING HANDSHAKE...",
+      "> TRANSMITTING DATA STREAM...",
+      "> ACCEPTING PACKETS...",
+      "> LOCKING CHANNEL...",
+      "> ASSEMBLING PACKETS...",
+      "> TRANSMISSION EXECUTED SUCCESSFULLY ✓",
     ];
 
     const container = document.getElementById("terminal-output");
@@ -143,7 +157,7 @@ export default function Contact() {
 
       tl.to(line, {
         opacity: 1,
-        duration: gsap.utils.random(0.4, 0.6),
+        duration: gsap.utils.random(0.6, 1),
         ease: "none",
       }).to(
         line,
@@ -181,7 +195,7 @@ export default function Contact() {
 
         {/* Terminal Header */}
         <p className="mb-6 font-mono text-xs md:text-lg text-cyan-400">
-          &gt; SECURE CHANNEL INITIALIZED
+          &gt;// SECURE CHANNEL INITIALIZED
         </p>
 
         {status === "sent" && (
@@ -196,16 +210,18 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="space-y-6 font-mono text-sm md:text-base tracking-wide"
           >
-            <Input label="NAME" name="name" />
-            <Input label="EMAIL" name="email" />
+            <Input label="NAME" name="name" type="text" />
+            <Input label="EMAIL" name="email" type="email" />
+            <InputOptional label="PHONE" name="phone" type="tel" />
             <Textarea label="MESSAGE" name="message" />
 
             <button
               type="submit"
               disabled={status !== "idle"}
               className="
-              mt-6
+              mt-5
               w-full
+              md:text-lg
               border
               border-cyan-500/30
               bg-cyan-500/10
@@ -228,7 +244,15 @@ export default function Contact() {
 
 /* ---------- INPUT COMPONENTS ---------- */
 
-function Input({ label, name }: { label: string; name: string }) {
+function Input({
+  label,
+  name,
+  type,
+}: {
+  label: string;
+  name: string;
+  type: string;
+}) {
   return (
     <label className="block">
       <span className="mb-1 block text-xs md:text-base text-cyan-400">
@@ -237,6 +261,7 @@ function Input({ label, name }: { label: string; name: string }) {
       <input
         required
         name={name}
+        type={type}
         className="
           w-full
           bg-black/60
@@ -248,6 +273,40 @@ function Input({ label, name }: { label: string; name: string }) {
           outline-none
           focus:border-cyan-400 caret-cyan-400
         "
+      />
+    </label>
+  );
+}
+
+function InputOptional({
+  label,
+  name,
+  type,
+}: {
+  label: string;
+  name: string;
+  type: string;
+}) {
+  return (
+    <label className="block">
+      <span className="mb-1 block text-xs md:text-base text-cyan-400">
+        {label}
+      </span>
+      <input
+        name={name}
+        type={type}
+        className="
+          w-full
+          bg-black/60
+          border
+          border-cyan-500/20
+          px-3
+          py-2
+          text-cyan-100
+          outline-none
+          focus:border-cyan-400 caret-cyan-400
+        "
+        placeholder="You can skip me hehe...  But don't you dare the rest :("
       />
     </label>
   );
