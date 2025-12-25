@@ -175,9 +175,11 @@ export default function Projects() {
               <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
             </div>
 
-            <h3 className="text-lg font-display text-white">{project.title}</h3>
+            <h3 className="text-lg md:text-xl font-display text-white">
+              {project.title}
+            </h3>
 
-            <p className="text-sm font-mono text-gray-400">
+            <p className="text-sm md:text-lg font-mono text-gray-400">
               {project.description}
             </p>
 
@@ -185,7 +187,7 @@ export default function Projects() {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="rounded-sm bg-cyan-500/10 px-2 py-1 text-xs font-mono text-cyan-300"
+                  className="rounded-sm bg-cyan-500/10 px-2 py-1 text-xs md:text-base trackinf tracking-wide font-mono text-cyan-300"
                 >
                   {t}
                 </span>

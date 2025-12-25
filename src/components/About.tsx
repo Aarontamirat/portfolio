@@ -64,17 +64,17 @@ export default function About() {
         <div className="grid gap-12 md:grid-cols-2">
           {/* Left */}
           <div>
-            <h2 className="font-display text-2xl tracking-widest text-cyan-400">
+            <h2 className="font-display text-2xl tracking-widest text-cyan-400 md:text-4xl">
               ABOUT
             </h2>
             <div className="mt-2 h-px w-16 bg-cyan-400/40" />
-            <p className="mt-6 max-w-sm font-mono text-lg uppercase tracking-wider text-gray-500 pl-4 border-l-4 border-cyan-400/30">
+            <p className="mt-6 max-w-sm font-mono text-lg md:text-xl uppercase tracking-wider text-gray-500 pl-4 border-l-4 border-cyan-400/30">
               Systems over shortcuts
             </p>
           </div>
 
           {/* Right */}
-          <div className="space-y-6 text-base leading-relaxed text-gray-400">
+          <div className="space-y-6 text-base md:text-xl leading-relaxed text-gray-400">
             <p className="scatter-line">
               As a software developer with a passion for building systems that
               are understandable, reliable, and easy to evolve, I enjoy working

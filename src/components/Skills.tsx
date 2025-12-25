@@ -217,8 +217,10 @@ export default function Skills() {
             className="skill-card flex flex-col gap-4 p-6 bg-black/30 border border-[rgba(255,255,255,0.06)] rounded-terminal will-change-transform transition-transform duration-300 cursor-pointer"
           >
             <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
-            <p className="text-lg font-display text-white">{skill.name}</p>
-            <p className="text-sm font-mono text-gray-400">
+            <p className="text-lg md:text-2xl font-display text-white">
+              {skill.name}
+            </p>
+            <p className="text-sm md:text-lg font-mono text-gray-400">
               {skill.description}
             </p>
 

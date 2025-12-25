@@ -180,19 +180,22 @@ export default function Contact() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[100%_4px]" />
 
         {/* Terminal Header */}
-        <p className="mb-6 font-mono text-xs text-cyan-400">
+        <p className="mb-6 font-mono text-xs md:text-lg text-cyan-400">
           &gt; SECURE CHANNEL INITIALIZED
         </p>
 
         {status === "sent" && (
           <div
             id="terminal-output"
-            className="space-y-2 font-mono text-xs text-cyan-400"
+            className="space-y-2 font-mono text-xs md:text-base text-cyan-400"
           />
         )}
 
         {status !== "sent" && (
-          <form onSubmit={handleSubmit} className="space-y-6 font-mono text-sm">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 font-mono text-sm md:text-base tracking-wide"
+          >
             <Input label="NAME" name="name" />
             <Input label="EMAIL" name="email" />
             <Textarea label="MESSAGE" name="message" />
@@ -228,7 +231,9 @@ export default function Contact() {
 function Input({ label, name }: { label: string; name: string }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-xs text-cyan-400">{label}</span>
+      <span className="mb-1 block text-xs md:text-base text-cyan-400">
+        {label}
+      </span>
       <input
         required
         name={name}
@@ -251,7 +256,9 @@ function Input({ label, name }: { label: string; name: string }) {
 function Textarea({ label, name }: { label: string; name: string }) {
   return (
     <label className="block">
-      <span className="mb-1 block text-xs text-cyan-400">{label}</span>
+      <span className="mb-1 block text-xs md:text-base text-cyan-400">
+        {label}
+      </span>
       <textarea
         required
         name={name}

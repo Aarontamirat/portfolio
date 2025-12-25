@@ -90,7 +90,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           {project.title}
         </h3>
 
-        <p className="text-sm font-mono text-gray-400 leading-relaxed">
+        <p className="text-sm md:text-lg font-mono text-gray-400 leading-relaxed">
           {project.longDescription || project.description}
         </p>
 
@@ -99,7 +99,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           {project.tech.map((t) => (
             <span
               key={t}
-              className="rounded-sm bg-cyan-500/10 px-2 py-1 text-xs font-mono text-cyan-300"
+              className="rounded-sm bg-cyan-500/10 px-2 py-1 text-xs md:text-base tracking-wider font-mono text-cyan-300"
             >
               {t}
             </span>

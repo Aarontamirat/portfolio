@@ -50,10 +50,10 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="
             font-display
-            text-4xl
+            text-5xl
             tracking-widest
             text-cyan-400
-            md:text-6xl
+            md:text-7xl
             glitch
             flicker
           "
@@ -67,7 +67,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}
-          className="mt-4 font-mono text-base text-gray-300 md:text-base"
+          className="mt-4 font-mono text-base text-gray-300 md:text-xl tracking-wider"
         >
           FULL-STACK DEVELOPER · SYSTEM BUILDER · PROBLEM SOLVER
         </motion.p>
@@ -87,7 +87,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-gray-400 md:text-sm"
+          className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-gray-400 md:text-xl"
         >
           I design and build scalable systems with a focus on clarity,
           performance, and long-term maintainability. I have experience with a
@@ -116,7 +116,7 @@ export default function Hero() {
               text-cyan-400
               transition
               hover:bg-cyan-400/10
-              buttonFlicker
+              buttonFlicker md:text-lg
             "
           >
             VIEW PROJECTS
@@ -132,7 +132,7 @@ export default function Hero() {
               font-mono
               text-gray-300
               transition
-              hover:text-cyan-400
+              hover:text-cyan-400 md:text-lg
             "
           >
             CONTACT
