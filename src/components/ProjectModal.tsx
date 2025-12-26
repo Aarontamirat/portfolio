@@ -107,14 +107,14 @@ export default function ProjectModal({ project, onClose }: Props) {
         </div>
 
         {/* Footer */}
-        <div className="mt-8 flex justify-end gap-3">
+        {/* <div className="mt-8 flex justify-end gap-3">
           <button className="rounded-sm border border-white/10 px-4 py-2 font-mono text-xs text-gray-300 hover:border-cyan-400 hover:text-white">
             VIEW CODE
           </button>
           <button className="rounded-sm bg-cyan-500/20 px-4 py-2 font-mono text-xs text-cyan-300 hover:bg-cyan-500/30">
             LIVE DEMO
           </button>
-        </div>
+        </div> */}
 
         {/* Decorative scan line */}
         <div className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-cyan-500/20 animate-pulse" />

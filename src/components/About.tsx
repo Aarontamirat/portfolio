@@ -76,33 +76,29 @@ export default function About() {
           {/* Right */}
           <div className="space-y-6 text-base md:text-xl leading-relaxed text-gray-400">
             <p className="scatter-line">
-              As a software developer with a passion for building systems that
-              are understandable, reliable, and easy to evolve, I enjoy working
-              close to the fundamentals — clean architecture, well-structured
-              data, and interfaces that respect the user. I believe that
-              maintainability matters more than short-term wins, and that
-              investing time upfront in a well-designed system will lead to
-              long-term success.
+              As a full-stack developer, I understand how each layer—from
+              React/Next.js interfaces to Node.js/Python APIs and
+              PostgreSQL/MongoDB data layers—impacts the final product. This
+              holistic perspective enables me to build systems that are
+              technically robust, scalable, and aligned with business goals. I
+              collaborate closely with teams to ensure solutions balance
+              performance, maintainability, and stakeholder needs.
             </p>
 
             <p className="scatter-line">
-              With experience in both front-end and back-end development, I have
-              a deep understanding of the entire web development stack. I
-              believe that the best systems are built by developers who are
-              knowledgeable about every layer of the stack, from the user
-              interface to the database and server. By working closely with
-              designers, product managers, and other stakeholders, I can ensure
-              that the systems I build are both technically sound and aligned
-              with the needs of the business.
+              With 5+ years of full-stack experience across Next.js, React,
+              Node.js, Python, and both SQL/NoSQL databases, I bridge frontend
+              interfaces with backend architecture to build cohesive systems. I
+              believe understanding every layer—from UI to database—is essential
+              for creating scalable, maintainable solutions that meet both
+              technical requirements and business objectives.
             </p>
 
             <p className="scatter-line border-l border-cyan-400/30 pl-4 text-gray-300">
-              Whether working on a new feature, debugging an issue, or
-              optimizing system performance, I bring a full-stack perspective to
-              every task. This allows me to quickly identify potential solutions
-              and to evaluate them in terms of their impact on the overall
-              system. By considering the system as a whole, I can ensure that
-              the solutions I develop are both effective and efficient.
+              I apply a full-stack perspective to every task—whether building
+              features, debugging, or optimizing performance. Understanding the
+              entire system allows me to evaluate solutions holistically,
+              ensuring they're both effective and scalable from UI to database.
             </p>
           </div>
         </div>

@@ -127,7 +127,7 @@ export default function CVAccess() {
 
             <div
               ref={containerRef}
-              className="relative mt-10 h-4 w-full overflow-hidden rounded bg-white/10"
+              className="relative mt-10 h-6 w-full overflow-hidden rounded bg-white/10"
             >
               {/* Target zone */}
               <div className="absolute left-1/2 top-0 h-full w-20 -translate-x-1/2 bg-cyan-400/20" />

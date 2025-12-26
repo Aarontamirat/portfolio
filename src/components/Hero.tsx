@@ -89,10 +89,12 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-gray-400 md:text-xl"
         >
-          I design and build scalable systems with a focus on clarity,
-          performance, and long-term maintainability. I have experience with a
-          wide range of technologies, including React, Next.js, Node.js,
-          Express, MongoDB, and more.
+          I architect and build full-stack solutions with 5+ years of experience
+          across modern JavaScript and Python ecosystems. I specialize in
+          scalable Next.js/React applications, Node.js/Express APIs,
+          PostgreSQL/MongoDB databases, and Python/Flask backends—crafting
+          systems that balance performance, maintainability, and real-world
+          business needs.
         </motion.p>
 
         {/* CTA */}
