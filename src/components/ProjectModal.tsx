@@ -63,7 +63,7 @@ export default function ProjectModal({ project, onClose }: Props) {
       >
         {/* OS Header */}
         <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-2">
-          <span className="font-mono text-xs text-cyan-400">
+          <span className="font-mono text-xs text-cyan-400 headerFlicker">
             SYSTEM://PROJECT_VIEW
           </span>
 

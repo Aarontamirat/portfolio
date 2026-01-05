@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -10,38 +11,56 @@ const skills = [
   {
     name: "Next.js",
     description: "Server-rendered React apps",
-    icon: "/nextjs.svg",
+    icon: "techstack/nextjs.svg",
     level: 5,
   },
   {
     name: "React",
     description: "UI building with React",
-    icon: "/React.svg",
+    icon: "techstack/React.svg",
     level: 5,
   },
   {
     name: "TypeScript",
     description: "Typed JavaScript for safety",
-    icon: "/TypeScript.svg",
-    level: 4,
+    icon: "techstack/TypeScript.svg",
+    level: 5,
   },
   {
     name: "Tailwind CSS",
     description: "Utility-first CSS framework",
-    icon: "/Tailwind CSS.svg",
-    level: 4,
+    icon: "techstack/Tailwind CSS.svg",
+    level: 5,
   },
   {
     name: "PHP",
     description: "Backend scripting language",
-    icon: "/PHP.svg",
+    icon: "techstack/PHP.svg",
     level: 4,
   },
   {
     name: "PostgreSQL",
     description: "Relational database management",
-    icon: "/PostgreSQL.svg",
-    level: 3,
+    icon: "techstack/PostgreSQL.svg",
+    level: 5,
+  },
+  {
+    name: "Three.js",
+    description: "JavaScript animation library",
+    icon: "techstack/Three.js.svg",
+    level: 5,
+  },
+  {
+    name: "Git",
+    description: "Version control system",
+    icon: "techstack/Git.svg",
+    level: 4,
+  },
+  {
+    name: "Figma",
+    description: "Collaborative design tool",
+    icon: "techstack/Figma.svg",
+    level: 4,
   },
 ];
 
@@ -207,7 +226,7 @@ export default function Skills() {
       <canvas ref={canvasRef} className="absolute inset-0 -z-10" />
 
       <h2 className="text-3xl font-display font-bold text-center text-white neon-text-glow mb-12">
-        MY <span className="text-cyan-400">//_</span> TECH STACK
+        MY <span className="text-cyan-400 headerFlicker">//_</span> TECH STACK
       </h2>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -216,7 +235,14 @@ export default function Skills() {
             key={skill.name}
             className="skill-card flex flex-col gap-4 p-6 bg-black/30 border border-[rgba(255,255,255,0.06)] rounded-terminal will-change-transform transition-transform duration-300 cursor-pointer"
           >
-            <img src={skill.icon} alt={skill.name} className="w-12 h-12" />
+            <Image
+              src={skill.icon}
+              alt={skill.name}
+              className="w-12 h-12"
+              width={24}
+              height={24}
+              loading="lazy"
+            />
             <p className="text-lg md:text-2xl font-display text-white">
               {skill.name}
             </p>

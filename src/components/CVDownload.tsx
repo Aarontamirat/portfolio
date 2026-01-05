@@ -191,12 +191,13 @@ export default function CVDownload() {
       >
         {stage === "confirm" && (
           <>
-            <h2 className="text-3xl tracking-widest uppercase">
-              Download My CV?
+            <h2 className="mb-12 text-center text-3xl font-display uppercase text-white neon-text-glow">
+              Want my <span className="text-cyan-400 headerFlicker">//_</span>{" "}
+              CV?
             </h2>
             <button
               onClick={() => setStage("game")}
-              className="px-5 py-2 rounded-xl border border-cyan-400 hover:bg-cyan-400 hover:text-black transition-transform hover:scale-110"
+              className="px-5 py-2 rounded-xl text-sm md:text-lg tracking-widest border border-cyan-300 hover:bg-cyan-400/20 hover:text-black hover:border-cyan-400/20 transition-all duration-500 buttonFlicker"
             >
               Yes
             </button>
@@ -210,7 +211,7 @@ export default function CVDownload() {
         {stage === "download" && (
           <div
             ref={downloadRef}
-            className="px-5 py-2 rounded-xl cursor-pointer select-none bg-cyan-400 text-black font-bold"
+            className="px-5 py-2 rounded-xl text-sm md:text-lg tracking-widest border border-cyan-300 hover:bg-cyan-400/20 hover:text-black hover:border-cyan-400/20 transition-all duration-500 buttonFlicker cursor-pointer"
             onClick={() => {
               const link = document.createElement("a");
               link.href = "/cv/Aaron_Tamirat_CV.pdf";

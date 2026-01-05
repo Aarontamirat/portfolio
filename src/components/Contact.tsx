@@ -19,7 +19,7 @@ export default function Contact() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top 80%",
+        start: "top 50%",
         once: true,
       },
     });
@@ -183,7 +183,8 @@ export default function Contact() {
       className="relative px-4 py-32 mx-auto max-w-5xl"
     >
       <h2 className="mb-12 text-center text-3xl font-display text-white neon-text-glow">
-        CONTACT <span className="text-cyan-400">//_</span> TERMINAL
+        CONTACT <span className="text-cyan-400 headerFlicker">//_</span>{" "}
+        TERMINAL
       </h2>
 
       <div

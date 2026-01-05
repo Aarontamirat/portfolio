@@ -20,6 +20,7 @@
   --neon-accent: #0ff;
   --neon-accent-light: #66ffff;
   --neon-accent-secondary: #0d8a8a;
+  --neon-accent-text: #26c6da;
   --neon-secondary: #f0f;
   --neon-secondary-light: #ff66ff;
 
@@ -165,7 +166,7 @@ body {
     opacity: 1;
     text-shadow: 0 0 1px var(--neon-accent-secondary),
       0 0 3px var(--neon-accent-secondary), 0 0 5px var(--neon-accent-secondary);
-    color: #0a0a0a;
+    color: #ffffff;
   }
   20%,
   22%,
@@ -181,6 +182,38 @@ body {
     opacity: 0.3;
     text-shadow: none;
     color: black;
+  }
+}
+
+@keyframes header-flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  58%,
+  66%,
+  87%,
+  89%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 1px var(--neon-accent-text),
+      0 0 2px var(--neon-accent-text), 0 0 1px var(--neon-accent-text);
+  }
+  20%,
+  22%,
+  24%,
+  55%,
+  57%,
+  59%,
+  63%,
+  65%,
+  88%,
+  90% {
+    opacity: 0.3;
+    text-shadow: none;
   }
 }
 /* -------------------------------------------------
@@ -225,6 +258,9 @@ body {
   }
   .cv-download {
     animation: button-flicker 4s infinite;
+  }
+  .headerFlicker {
+    animation: header-flicker 6.4s infinite;
   }
 }
 

@@ -156,7 +156,8 @@ export default function Projects() {
       <div className="absolute -top-24 left-1/2 h-px w-[60%] -translate-x-1/2 bg-linear-to-r from-transparent via-cyan-500/40 to-transparent" />
 
       <h2 className="text-3xl font-display font-bold text-center text-white neon-text-glow">
-        SELECTED <span className="text-cyan-400">//_</span> PROJECTS
+        SELECTED <span className="text-cyan-400 headerFlicker">//_</span>{" "}
+        PROJECTS
       </h2>
 
       <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
