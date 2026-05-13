@@ -1,0 +1,7 @@
+{
+  "svg.preview.background": "transparent",
+  "svg.minify.removeUnknownsAndDefaults": false,
+  "workbench.editorAssociations": {
+    "*.svg": "default"
+  }
+}
