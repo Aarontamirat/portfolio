@@ -54,10 +54,14 @@ body {
 @keyframes neon-pulse {
   0%,
   100% {
-    box-shadow: 0 0 5px var(--neon-accent), 0 0 10px var(--neon-accent-light);
+    box-shadow:
+      0 0 5px var(--neon-accent),
+      0 0 10px var(--neon-accent-light);
   }
   50% {
-    box-shadow: 0 0 10px var(--neon-accent-light), 0 0 20px var(--neon-accent);
+    box-shadow:
+      0 0 10px var(--neon-accent-light),
+      0 0 20px var(--neon-accent);
   }
 }
 
@@ -92,7 +96,9 @@ body {
   89%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 2px var(--neon-accent), 0 0 5px var(--neon-accent),
+    text-shadow:
+      0 0 2px var(--neon-accent),
+      0 0 5px var(--neon-accent),
       0 0 10px var(--neon-accent);
   }
   20%,
@@ -128,8 +134,10 @@ body {
   89%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 1px var(--neon-accent-secondary),
-      0 0 3px var(--neon-accent-secondary), 0 0 5px var(--neon-accent-secondary);
+    text-shadow:
+      0 0 1px var(--neon-accent-secondary),
+      0 0 3px var(--neon-accent-secondary),
+      0 0 5px var(--neon-accent-secondary);
   }
   20%,
   22%,
@@ -164,8 +172,10 @@ body {
   89%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 1px var(--neon-accent-secondary),
-      0 0 3px var(--neon-accent-secondary), 0 0 5px var(--neon-accent-secondary);
+    text-shadow:
+      0 0 1px var(--neon-accent-secondary),
+      0 0 3px var(--neon-accent-secondary),
+      0 0 5px var(--neon-accent-secondary);
     color: #ffffff;
   }
   20%,
@@ -199,8 +209,10 @@ body {
   89%,
   100% {
     opacity: 1;
-    text-shadow: 0 0 1px var(--neon-accent-text),
-      0 0 2px var(--neon-accent-text), 0 0 1px var(--neon-accent-text);
+    text-shadow:
+      0 0 1px var(--neon-accent-text),
+      0 0 2px var(--neon-accent-text),
+      0 0 1px var(--neon-accent-text);
   }
   20%,
   22%,
@@ -233,7 +245,9 @@ body {
 @media (min-width: 768px) {
   .glitch:hover {
     animation: glitch-shift 0.3s infinite;
-    text-shadow: 2px 0 var(--neon-secondary), -2px 0 var(--neon-accent);
+    text-shadow:
+      2px 0 var(--neon-secondary),
+      -2px 0 var(--neon-accent);
   }
   .hero-divider {
     animation: flicker 3s infinite;
@@ -289,4 +303,135 @@ main {
   height: 16px;
   background: linear-gradient(-90deg, #0ff, transparent);
   animation: scan 1.4s linear infinite;
+}
+
+/* Hide default scrollbar everywhere */
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Scrollbar container */
+.cyber-scrollbar {
+  position: fixed;
+  top: 0;
+  right: 8px;
+  width: 14px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Floating thumb */
+.cyber-thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    var(--neon-accent),
+    var(--neon-secondary)
+  );
+
+  box-shadow:
+    0 0 10px var(--neon-accent),
+    0 0 18px var(--neon-secondary);
+
+  transition:
+    clip-path 0.25s ease,
+    transform 0.15s linear,
+    border-radius 0.3s ease,
+    filter 0.2s ease;
+
+  animation: idle-float 3s ease-in-out infinite;
+}
+
+/* While actively scrolling */
+.cyber-thumb.scrolling {
+  box-shadow:
+    0 0 12px var(--neon-accent-light),
+    0 0 28px var(--neon-secondary-light);
+  filter: brightness(1.3);
+}
+
+/* Subtle floating glow trail */
+.cyber-thumb::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.25), transparent 70%);
+  z-index: -1;
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+.cyber-thumb[data-direction="idle"] {
+  clip-path: polygon(
+    50% 0%,
+    80% 20%,
+    90% 50%,
+    80% 80%,
+    50% 100%,
+    20% 80%,
+    10% 50%,
+    20% 20%
+  );
+  border-radius: 40% 60% 55% 45% / 55% 45% 60% 40%;
+  filter: brightness(1);
+}
+.cyber-thumb.moving[data-direction="down"] {
+  clip-path: polygon(
+    50% 0%,
+    100% 60%,
+    70% 60%,
+    70% 100%,
+    30% 100%,
+    30% 60%,
+    0% 60%
+  );
+  filter: brightness(1.4);
+}
+
+.cyber-thumb.moving[data-direction="up"] {
+  clip-path: polygon(
+    30% 0%,
+    70% 0%,
+    70% 40%,
+    100% 40%,
+    50% 100%,
+    0% 40%,
+    30% 40%
+  );
+  filter: brightness(1.4);
+}
+@keyframes idle-float {
+  0%,
+  100% {
+    transform: translateY(0) scaleX(1);
+  }
+  50% {
+    transform: translateY(-2px) scaleX(1.05);
+  }
+}
+.cyber-thumb.moving {
+  box-shadow:
+    0 0 16px var(--neon-accent-light),
+    0 0 32px var(--neon-secondary-light);
 }

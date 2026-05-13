@@ -5,6 +5,7 @@ import AppShell from "@/components/AppShell";
 import Navbar from "@/components/Navbar";
 import FallingStar from "@/components/FallingStar";
 import MouseSnake from "@/components/MouseTrail";
+import CyberScrollbar from "@/components/ui/CyberScrollbar";
 
 const display = Electrolize({
   subsets: ["latin"],

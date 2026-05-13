@@ -9,11 +9,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "ITSM Platform",
+    title: "Human Resources & Logistics Management System",
     description:
-      "Full-featured IT Service Management System with ticketing, project management, and performance modules.",
-    tech: ["PHP", "MySQL", "jQuery", "Tailwind CSS"],
-    image: "/projects/itsm.jpg",
+      "Human resources and logistics management system for tracking employees, projects, and deliveries.",
+    tech: ["Next.js", "MySQL", "Tailwind CSS"],
+    image: "/projects/hrlog.png",
   },
   {
     title: "Shareholder Voting System",
@@ -23,10 +23,31 @@ const projects = [
     image: "/projects/voting.png",
   },
   {
+    title: "ITSM Platform",
+    description:
+      "Full-featured IT Service Management System with ticketing, project management, and performance modules.",
+    tech: ["PHP", "MySQL", "jQuery", "Tailwind CSS"],
+    image: "/projects/itsm.jpg",
+  },
+  {
+    title: "Library Management System",
+    description:
+      "Library management system for tracking books, members, and transactions.",
+    tech: ["Next.js", "PostgreSQL", "Tailwind CSS", "Nest.js"],
+    image: "/projects/library.png",
+  },
+  {
+    title: "Leave Management System",
+    description:
+      "Leave management system for tracking employees' leave requests and approvals.",
+    tech: ["React.js", "PostgreSQL", "Tailwind CSS", "Express.js"],
+    image: "/projects/leave.png",
+  },
+  {
     title: "Claim Notifications Platform",
     description:
       "Web application for submitting and managing insurance claims. Includes features such as claim status tracking, payment processing, and automated notifications.",
-    tech: ["PHP", "MVC", "PayPal"],
+    tech: ["PHP", "MVC", "PostgreSQL", "Tailwind CSS"],
     image: "/projects/claim.png",
   },
 ];
@@ -54,7 +75,7 @@ export default function Projects() {
           trigger: sectionRef.current,
           start: "top 85%",
         },
-      }
+      },
     );
 
     /* ---------------- CARD REVEAL TIMELINE ---------------- */

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Howl } from "howler";
+// import { Howl } from "howler";
 
 interface CyberMiniGameProps {
   onWin: () => void;
@@ -29,7 +29,7 @@ export default function CyberMiniGame({ onWin }: CyberMiniGameProps) {
   const scoreRef = useRef(0);
   const scoreGoal = 15;
   const maxActivePackets = 4;
-  const catchSound = new Howl({ src: ["/sounds/catch.mp3"] });
+  // const catchSound = new Howl({ src: ["/sounds/catch.mp3"] });
 
   useEffect(() => {
     const canvas = canvasRef.current!;
@@ -175,7 +175,7 @@ export default function CyberMiniGame({ onWin }: CyberMiniGameProps) {
           p.x <= trayX + 50
         ) {
           scoreRef.current += 1;
-          catchSound.play();
+          // catchSound.play();
           p.caught = true;
           spawnParticles(p.x + p.size / 2, p.y + p.size / 2);
           trayGlow = 20;
@@ -208,7 +208,7 @@ export default function CyberMiniGame({ onWin }: CyberMiniGameProps) {
       canvas.removeEventListener("pointerup", onPointerUp);
       canvas.removeEventListener("pointercancel", onPointerUp);
     };
-  }, [onWin, catchSound]);
+  }, [onWin]);
 
   return (
     <canvas

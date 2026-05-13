@@ -219,7 +219,7 @@ export default function CVDownload() {
               link.click();
             }}
           >
-            DOWNLOAD CV
+            Download Ready!
           </div>
         )}
       </div>
