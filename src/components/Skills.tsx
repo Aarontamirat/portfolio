@@ -27,9 +27,21 @@ const skills = [
     level: 5,
   },
   {
+    name: "Nest.js",
+    description: "Backend framework for Node.js",
+    icon: "techstack/nestjs.svg",
+    level: 5,
+  },
+  {
     name: "Tailwind CSS",
     description: "Utility-first CSS framework",
     icon: "techstack/Tailwind CSS.svg",
+    level: 5,
+  },
+  {
+    name: "Express.jS",
+    description: "Backend framework for Node.js",
+    icon: "techstack/Express.svg",
     level: 5,
   },
   {
