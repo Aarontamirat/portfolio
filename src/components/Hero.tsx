@@ -41,31 +41,31 @@ export default function Hero() {
           y: imageY,
           scale: imageScale,
         }}
-        className="pointer-events-none fixed inset-0 z-0"
+        className="pointer-events-none absolute inset-0"
       >
         <div className="absolute inset-0">
           <Image
-            src="/hero/aaroncoder.jpg" // <-- place your image here
+            src="/hero/aaronss.jpg"
             alt="Developer workspace"
             fill
             priority
             className="
-  object-cover
-  object-center
-  opacity-[0.45]
-  scale-105
-"
+              object-cover
+              object-center
+              opacity-[1]
+              scale-105
+            "
           />
         </div>
 
         {/* Dark cinematic overlay */}
-        <div className="absolute inset-0 bg-black/45" />
+        <div className="absolute inset-0 bg-black/70" />
 
         {/* Cyan ambient glow */}
         <div
           className="
             absolute inset-0
-            bg-[radial-gradient(circle_at_70%_40%,rgba(34,211,238,0.14),transparent_40%)]
+            bg-[radial-gradient(circle_at_70%_40%,rgba(34,211,238,0.14))]
           "
         />
 
@@ -74,9 +74,9 @@ export default function Hero() {
           className="
             absolute inset-0
             bg-gradient-to-r
-from-black/80
-via-black/30
-to-transparent
+            from-black
+            via-black/70
+            to-transparent
           "
         />
 
