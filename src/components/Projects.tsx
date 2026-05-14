@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import ProjectModal from "./ProjectModal";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,112 +60,123 @@ export default function Projects() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    const cards = gsap.utils.toArray(".project-card") as HTMLDivElement[];
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray(".project-card") as HTMLDivElement[];
 
-    /* ---------------- SECTION TRANSITION ---------------- */
+      /* ---------------- SECTION REVEAL ---------------- */
 
-    gsap.fromTo(
-      sectionRef.current,
-      { opacity: 0, y: 120 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.4,
-        ease: "power4.out",
+      gsap.from(sectionRef.current, {
+        autoAlpha: 0,
+        y: 80,
+        duration: 1,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 85%",
+          once: true,
         },
-      },
-    );
+      });
 
-    /* ---------------- CARD REVEAL TIMELINE ---------------- */
+      /* ---------------- INITIAL CARD STATE ---------------- */
 
-    gsap.set(cards, {
-      opacity: 0,
-      y: 80,
-      rotateX: 20,
-      transformPerspective: 1200,
-      transformStyle: "preserve-3d",
-    });
+      gsap.set(cards, {
+        autoAlpha: 0,
+        y: 60,
+        rotateX: 12,
+        transformPerspective: 1000,
+        transformOrigin: "top center",
+        force3D: true,
+      });
 
-    gsap.to(cards, {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      duration: 1.2,
-      ease: "power3.out",
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 70%",
-      },
-    });
+      /* ---------------- CARD REVEAL ---------------- */
 
-    /* ---------------- SCROLL DEPTH ---------------- */
-
-    cards.forEach((card, i) => {
-      gsap.to(card, {
-        z: i * 40,
+      gsap.to(cards, {
+        autoAlpha: 1,
+        y: 0,
+        rotateX: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+        clearProps: "transform",
+        overwrite: "auto",
         scrollTrigger: {
-          trigger: card,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 0.6,
+          trigger: sectionRef.current,
+          start: "top 70%",
+          once: true,
         },
       });
-    });
 
-    /* ---------------- HOVER FOCUS MODE ---------------- */
+      /* ---------------- SUBTLE PARALLAX ---------------- */
 
-    let activeCard: HTMLDivElement | null = null;
-
-    cards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        if (activeCard === card) return;
-        activeCard = card;
-
-        gsap.killTweensOf(cards);
-
-        cards.forEach((c) => {
-          if (c === card) {
-            gsap.to(c, {
-              scale: 1.06,
-              opacity: 1,
-              boxShadow: "0 30px 80px rgba(31,208,224,0.35)",
-              duration: 0.35,
-              ease: "power3.out",
-            });
-          } else {
-            gsap.to(c, {
-              scale: 0.95,
-              opacity: 0.45,
-              boxShadow: "0 0 0 rgba(0,0,0,0)",
-              duration: 0.35,
-              ease: "power3.out",
-            });
-          }
+      cards.forEach((card, i) => {
+        gsap.to(card, {
+          y: -20 * (i % 3),
+          ease: "none",
+          overwrite: "auto",
+          scrollTrigger: {
+            trigger: card,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 0.5,
+          },
         });
       });
 
-      card.addEventListener("mouseleave", () => {
-        activeCard = null;
+      /* ---------------- HOVER EFFECT ---------------- */
 
-        gsap.killTweensOf(cards);
+      const enterHandlers: (() => void)[] = [];
+      const leaveHandlers: (() => void)[] = [];
 
-        gsap.to(cards, {
-          scale: 1,
-          opacity: 1,
-          boxShadow: "0 0 0 rgba(0,0,0,0)",
-          duration: 0.45,
-          ease: "power3.out",
-        });
+      cards.forEach((card) => {
+        const enter = () => {
+          cards.forEach((c) => {
+            if (c === card) {
+              gsap.to(c, {
+                scale: 1.04,
+                boxShadow: "0 30px 80px rgba(31,208,224,0.25)",
+                duration: 0.3,
+                ease: "power2.out",
+                overwrite: "auto",
+              });
+            } else {
+              gsap.to(c, {
+                scale: 0.97,
+                opacity: 0.6,
+                duration: 0.3,
+                ease: "power2.out",
+                overwrite: "auto",
+              });
+            }
+          });
+        };
+
+        const leave = () => {
+          gsap.to(cards, {
+            scale: 1,
+            opacity: 1,
+            boxShadow: "0 0 0 rgba(0,0,0,0)",
+            duration: 0.35,
+            ease: "power2.out",
+            overwrite: "auto",
+          });
+        };
+
+        card.addEventListener("mouseenter", enter);
+        card.addEventListener("mouseleave", leave);
+
+        enterHandlers.push(enter);
+        leaveHandlers.push(leave);
       });
-    });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+      return () => {
+        cards.forEach((card, i) => {
+          card.removeEventListener("mouseenter", enterHandlers[i]);
+          card.removeEventListener("mouseleave", leaveHandlers[i]);
+        });
+      };
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -189,10 +201,12 @@ export default function Projects() {
             onClick={() => setActiveProject(project)}
           >
             <div className="relative h-40 overflow-hidden rounded-md">
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="h-full w-full object-cover opacity-80"
+                fill
+                className="object-cover opacity-80"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent" />
             </div>
