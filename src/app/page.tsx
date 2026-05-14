@@ -8,6 +8,7 @@ import FirewallBreach from "@/components/FirewallBreach";
 import MemoryDump from "@/components/MemoryDump";
 import SignalNoise from "@/components/SignalNoise";
 import CVDownload from "@/components/CVDownload";
+import Certifications from "@/components/Certifications";
 
 export default function HomePage() {
   return (
@@ -19,6 +20,7 @@ export default function HomePage() {
       <About />
       <Skills />
       <Projects />
+      <Certifications />
       <Contact />
       {/* <CVAccess /> */}
       <CVDownload />
