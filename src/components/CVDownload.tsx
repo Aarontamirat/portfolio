@@ -157,7 +157,7 @@ export default function CVDownload() {
   return (
     <div
       ref={containerRef}
-      id="cv-download"
+      id="resume"
       className="relative min-h-screen flex items-center justify-center text-cyan-400 font-mono overflow-hidden"
       style={{ perspective: "2200px" }}>
       {/* STARFIELD */}

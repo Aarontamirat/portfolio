@@ -317,7 +317,7 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="#cv-download"
+            href="#resume"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="
