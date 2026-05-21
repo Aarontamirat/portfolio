@@ -232,8 +232,7 @@ export default function Skills() {
     <section
       ref={sectionRef}
       id="skills"
-      className="relative px-4 py-16 sm:py-24 mx-auto max-w-7xl 2xl:px-0 perspective-1000 overflow-hidden"
-    >
+      className="relative px-4 py-16 sm:py-24 mx-auto max-w-7xl 2xl:px-0 perspective-1000 overflow-hidden">
       {/* ---------------- Particle Canvas ---------------- */}
       <canvas ref={canvasRef} className="absolute inset-0 -z-10" />
 
@@ -245,8 +244,7 @@ export default function Skills() {
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="skill-card flex flex-col gap-4 p-6 bg-black/30 border border-[rgba(255,255,255,0.06)] rounded-terminal will-change-transform transition-transform duration-300 cursor-pointer"
-          >
+            className="skill-card flex flex-col gap-4 p-6 bg-black/30 border border-[rgba(255,255,255,0.06)] rounded-terminal will-change-transform transition-transform duration-300 cursor-pointer">
             <Image
               src={skill.icon}
               alt={skill.name}
