@@ -39,7 +39,7 @@ export default function Contact() {
         filter: `brightness(${gsap.utils.random(0.2, 3.5)})`,
         boxShadow: `0 0 ${gsap.utils.random(
           20,
-          180
+          180,
         )}px rgba(34,211,238,${gsap.utils.random(0.1, 0.7)})`,
         duration: gsap.utils.random(0.05, 0.18),
         ease: "none",
@@ -71,7 +71,7 @@ export default function Contact() {
   // KeyStroke Animation
   useEffect(() => {
     const inputs = gsap.utils.toArray<HTMLInputElement | HTMLTextAreaElement>(
-      "input, textarea"
+      "input, textarea",
     );
 
     inputs.forEach((el) => {
@@ -87,7 +87,7 @@ export default function Contact() {
             yoyo: true,
             repeat: 1,
             ease: "none",
-          }
+          },
         );
       });
     });
@@ -133,13 +133,13 @@ export default function Contact() {
     if (status !== "sent") return;
 
     const lines = [
-      "> ENCRYPTING PAYLOAD...",
-      "> CONFIRMING HANDSHAKE...",
-      "> TRANSMITTING DATA STREAM...",
-      "> ACCEPTING PACKETS...",
-      "> LOCKING CHANNEL...",
-      "> ASSEMBLING PACKETS...",
-      "> TRANSMISSION EXECUTED SUCCESSFULLY ✓",
+      "> VALIDATING INPUT...",
+      "> ESTABLISHING SECURE CONNECTION...",
+      "> PACKAGING MESSAGE...",
+      "> TRANSMITTING REQUEST...",
+      "> DELIVERY CONFIRMED...",
+      "> CHANNEL CLOSED.",
+      "> MESSAGE SENT SUCCESSFULLY ✓",
     ];
 
     const container = document.getElementById("terminal-output");
@@ -163,9 +163,9 @@ export default function Contact() {
         line,
         {
           textShadow: "0 0 12px rgba(34,211,238,0.8)",
-          duration: gsap.utils.random(0.5, 0.7),
+          duration: gsap.utils.random(0.2, 0.5),
         },
-        "-=0.1"
+        "-=0.1",
       );
     });
 
@@ -180,8 +180,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative px-4 py-32 mx-auto max-w-5xl"
-    >
+      className="relative px-4 py-32 mx-auto max-w-5xl">
       <h2 className="mb-12 text-center text-3xl font-display text-white neon-text-glow">
         CONTACT <span className="text-cyan-400 headerFlicker">//_</span>{" "}
         TERMINAL
@@ -189,8 +188,7 @@ export default function Contact() {
 
       <div
         ref={panelRef}
-        className="relative rounded-lg border border-cyan-500/20 bg-black/60 p-8 shadow-[0_0_120px_rgba(34,211,238,0.35)] overflow-hidden animate-[pulse_6s_ease-in-out_infinite]"
-      >
+        className="relative rounded-lg border border-cyan-500/20 bg-black/60 p-8 shadow-[0_0_120px_rgba(34,211,238,0.35)] overflow-hidden animate-[pulse_6s_ease-in-out_infinite]">
         {/* Scanline */}
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[100%_4px]" />
 
@@ -209,8 +207,7 @@ export default function Contact() {
         {status !== "sent" && (
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 font-mono text-sm md:text-base tracking-wide"
-          >
+            className="space-y-6 font-mono text-sm md:text-base tracking-wide">
             <Input label="NAME" name="name" type="text" />
             <Input label="EMAIL" name="email" type="email" />
             <InputOptional label="PHONE" name="phone" type="tel" />
@@ -231,11 +228,73 @@ export default function Contact() {
               transition
               hover:bg-cyan-500/20
               disabled:opacity-50
-            "
-            >
+            ">
               {status === "idle" && "EXECUTE TRANSMISSION"}
               {status === "sending" && "TRANSMITTING..."}
             </button>
+            {/* Fallback Contact Options */}
+            <div className="mt-8 border-t border-cyan-500/20 pt-6">
+              <p className="mb-4 font-mono text-xs md:text-sm text-cyan-500">
+                &gt;// PREFER DIRECT TRANSMISSION?
+              </p>
+
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <a
+                  href="mailto:your-email@gmail.com"
+                  className="
+        group flex items-center gap-2
+        border border-cyan-500/20
+        bg-cyan-500/5
+        px-4 py-3
+        text-cyan-300
+        transition-all duration-300
+        hover:border-cyan-400
+        hover:bg-cyan-500/10
+        hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]
+      ">
+                  <span className="font-mono text-sm">[ GMAIL ]</span>
+                  <span className="text-cyan-100 break-all">
+                    aarontamirat99@gmail.com
+                  </span>
+                </a>
+
+                <a
+                  href="https://github.com/aarontamirat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+        group flex items-center gap-2
+        border border-cyan-500/20
+        bg-cyan-500/5
+        px-4 py-3
+        text-cyan-300
+        transition-all duration-300
+        hover:border-cyan-400
+        hover:bg-cyan-500/10
+        hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]
+      ">
+                  <span className="font-mono text-sm">[ GITHUB ]</span>
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/aarontamirat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+        group flex items-center gap-2
+        border border-cyan-500/20
+        bg-cyan-500/5
+        px-4 py-3
+        text-cyan-300
+        transition-all duration-300
+        hover:border-cyan-400
+        hover:bg-cyan-500/10
+        hover:shadow-[0_0_30px_rgba(34,211,238,0.25)]
+      ">
+                  <span className="font-mono text-sm">[ LINKEDIN ]</span>
+                </a>
+              </div>
+            </div>
           </form>
         )}
       </div>

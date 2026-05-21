@@ -16,53 +16,47 @@ const certifications = [
     year: "2025",
     badge: "/badges/web-development-fundamentals.png",
     description:
-      "This credential earner demonstrates knowledge of web development concepts, processes to develop, deploy, and test websites, and the tools and programming languages that web developers use. The individual has a conceptual understanding of how to develop an interactive website using HTML, CSS, and JavaScript in a simulated integrated development environment (IDE). The earner is aware of the job outlook in web development and is familiar with the skills required for success in various roles.",
-    skills: ["DevOps", "SDLC", "Testing", "frontend", "backend", "databases"],
+      "Foundational credential covering full web development workflows including frontend, backend, databases, testing, and deployment concepts.",
+    skills: ["Frontend", "Backend", "Databases", "Testing", "SDLC"],
     status: "Verified",
     link: "https://www.credly.com/badges/6903c6df-0bd6-4c00-9c50-7381a7ba70a3/public_url",
   },
   {
-    title: "Cisco JavaScript Essentials",
+    title: "JavaScript Essentials",
     issuer: "Cisco",
     year: "2025",
     badge: "/badges/javascript-essentials-1.png",
     description:
-      "Earners know the syntax of the core JavaScript; can work with variables, operators, flow control, and functions; know the basics of data types system; think algorithmically and can analyze problems using a programmatic conceptual apparatus; and can design, develop, and improve simple JavaScript programs.",
+      "Core JavaScript programming including functions, logic, debugging, problem-solving, and algorithmic thinking.",
     skills: [
-      "Debugging",
-      "Type Casting",
-      "Recursion",
-      "User Interactions",
+      "JavaScript",
       "Functions",
+      "Debugging",
+      "Algorithms",
+      "Problem Solving",
     ],
     status: "Verified",
     link: "https://www.credly.com/badges/6e93da1f-41f6-4cd8-80bc-a6f648fc0e84/public_url",
   },
   {
-    title: "CISCO HTML Essentials",
+    title: "HTML Essentials",
     issuer: "Cisco",
     year: "2025",
     badge: "/badges/html-essentials.png",
     description:
-      "The course covered HTML5 fundamentals, including document structure, text formatting, hyperlinks, multimedia integration, forms, and accessibility best practices.",
-    skills: [
-      "HTML5",
-      "Hyperlinks",
-      "Multimedia",
-      "Forms & Data Collection",
-      "Accessibility",
-    ],
+      "HTML5 fundamentals including semantic structure, accessibility, forms, multimedia, and modern web standards.",
+    skills: ["HTML5", "Accessibility", "Forms", "Semantic HTML"],
     status: "Verified",
     link: "https://www.credly.com/badges/1946dd93-7697-40e9-a1a2-1f5f5ce4f799/public_url",
   },
   {
-    title: "CISCO CSS Essentials",
+    title: "CSS Essentials",
     issuer: "Cisco",
     year: "2025",
     badge: "/badges/css-essentials.png",
     description:
-      "The course covered CSS3 fundamentals, including styling web pages, applying layout techniques, implementing responsive design, and ensuring accessibility and usability.",
-    skills: ["Animations", "Interactivity", "Grid & Flexbox", "Responsiveness"],
+      "CSS fundamentals including responsive layouts, Flexbox, Grid, animations, and UI styling best practices.",
+    skills: ["Responsive Design", "Flexbox", "Grid", "Animations"],
     status: "Verified",
     link: "https://www.credly.com/badges/1d4394ca-3f13-476d-86a0-411c44642834/public_url",
   },
@@ -208,8 +202,7 @@ export default function Certifications() {
     <section
       ref={sectionRef}
       id="certifications"
-      className="relative mx-auto max-w-7xl px-4 py-32"
-    >
+      className="relative mx-auto max-w-7xl px-4 py-32">
       {/* =========================================
           TRANSITION DIVIDER
       ========================================= */}
@@ -237,9 +230,8 @@ export default function Certifications() {
         </h2>
 
         <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-gray-400 md:text-base">
-          Professional certifications and technical credentials focused on
-          modern software engineering, architecture, and user experience
-          systems.
+          Technical certifications validating core competencies in web
+          development, frontend engineering, and modern software systems.
         </p>
       </div>
 
@@ -247,7 +239,7 @@ export default function Certifications() {
           GRID
       ========================================= */}
 
-      <div className="mt-24 grid gap-8 lg:grid-cols-3">
+      <div className="mx-auto mt-20 grid max-w-5xl gap-6 lg:grid-cols-2">
         {certifications.map((cert, index) => (
           <div
             key={cert.title}
@@ -256,14 +248,13 @@ export default function Certifications() {
               group
               relative
               overflow-hidden
-              rounded-3xl
+              rounded-2xl
               border
               border-white/5
               bg-black/30
               backdrop-blur-2xl
               transform-gpu
-            "
-          >
+            ">
             {/* =====================================
                 TOP GLOW
             ===================================== */}
@@ -287,7 +278,7 @@ export default function Certifications() {
                 CONTENT
             ===================================== */}
 
-            <div className="relative z-10 p-7">
+            <div className="relative z-10 p-6">
               {/* =================================
                   TOP ROW
               ================================= */}
@@ -318,8 +309,7 @@ export default function Certifications() {
                     border-white/10
                     bg-white/5
                     backdrop-blur-md
-                  "
-                  >
+                  ">
                     <Image
                       src={cert.badge}
                       alt={`${cert.title} badge`}
@@ -343,7 +333,7 @@ export default function Certifications() {
               ================================= */}
 
               <div className="mt-8">
-                <h3 className="text-2xl font-semibold text-white">
+                <h3 className="text-xl font-semibold leading-tight text-white">
                   {cert.title}
                 </h3>
 
@@ -358,7 +348,7 @@ export default function Certifications() {
 
               {/* DESCRIPTION */}
 
-              <p className="mt-6 text-sm leading-relaxed text-gray-400">
+              <p className="mt-4 text-sm leading-6 text-gray-400">
                 {cert.description}
               </p>
 
@@ -371,7 +361,7 @@ export default function Certifications() {
                   <span
                     key={skill}
                     className="
-                      rounded-lg
+                      rounded-md
                       border
                       border-cyan-400/10
                       bg-cyan-500/10
@@ -380,8 +370,7 @@ export default function Certifications() {
                       text-xs
                       tracking-wide
                       text-cyan-300
-                    "
-                  >
+                    ">
                     {skill}
                   </span>
                 ))}
@@ -401,7 +390,9 @@ export default function Certifications() {
                 {cert.link && (
                   <div className="flex items-center gap-2">
                     <Link href={cert.link} target="_blank" rel="noopener">
-                      <span className="text-sm text-cyan-300">Link</span>
+                      <span className="text-sm text-cyan-300">
+                        Verify Credential
+                      </span>
                     </Link>
                     <ExternalLink className="h-4 w-4" />
                   </div>
