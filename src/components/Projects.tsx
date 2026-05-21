@@ -211,7 +211,7 @@ export default function Projects() {
       id="projects"
       className="relative mx-auto max-w-7xl px-4 py-32">
       {/* Divider */}
-      <div className="absolute -top-24 left-1/2 h-px w-[60%] -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
+      <div className="absolute -top-24 left-1/2 h-px w-[60%] -translate-x-1/2 bg-linear-to-r from-transparent via-cyan-500/30 to-transparent" />
 
       {/* Heading */}
 
@@ -259,7 +259,7 @@ export default function Projects() {
             ">
             {/* Top glow */}
 
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-cyan-400/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
             {/* Image */}
 
@@ -272,7 +272,7 @@ export default function Projects() {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/30 to-transparent" />
 
               <div className="absolute left-5 top-5 rounded-full border border-cyan-400/20 bg-black/60 px-3 py-1 backdrop-blur-md">
                 <span className="text-xs tracking-wide text-cyan-300">

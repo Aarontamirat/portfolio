@@ -73,7 +73,7 @@ export default function Hero() {
         <div
           className="
             absolute inset-0
-            bg-gradient-to-r
+            bg-linear-to-r
             from-black
             via-black/70
             to-transparent
@@ -83,7 +83,7 @@ export default function Hero() {
         <div
           className="
             absolute inset-0
-            bg-gradient-to-t
+            bg-linear-to-t
             from-black
             via-transparent
             to-black/20
