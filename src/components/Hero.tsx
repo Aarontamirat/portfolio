@@ -318,7 +318,6 @@ export default function Hero() {
 
           <motion.a
             href="#cv-download"
-            target="_blank"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className="
