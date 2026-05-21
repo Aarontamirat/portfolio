@@ -317,27 +317,6 @@ export default function Hero() {
           </motion.a>
 
           <motion.a
-            href="#resume"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="
-              border border-cyan-500/20
-              bg-black/30
-              px-7
-              py-3
-              text-sm
-              font-medium
-              tracking-wide
-              text-white
-              transition
-              hover:border-cyan-400
-              hover:bg-cyan-500/10
-              md:text-base
-            ">
-            VIEW RESUME
-          </motion.a>
-
-          <motion.a
             href="#contact"
             whileHover={{ y: -2 }}
             className="
