@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import FallingStar from "@/components/FallingStar";
 import MouseSnake from "@/components/MouseTrail";
 import CyberScrollbar from "@/components/ui/CyberScrollbar";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const display = Electrolize({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         {/* <FallingStar /> */}
         <MouseSnake />
         <AppShell>{children}</AppShell>
+        <SpeedInsights />
       </body>
     </html>
   );
